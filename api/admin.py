@@ -20,11 +20,12 @@ def make_Overdue(modeladmin, request, queryset):
 # @admin.register(TodoItem)     #using decorator
 class TodoItemAdmin(admin.ModelAdmin):
     list_display = ["title", "due_date", "status"]
-    # ordering = ["title"]
-    date_hierarchy = "timestamp"
+    ordering = ["title"]
+    # date_hierarchy = "timestamp"
     actions = [make_Open, make_Working, make_Done, make_Overdue]
     empty_value_display = "-empty-"
-    # list_filter = ["title", "due_date", "tags", "status"]
+    list_filter = ["due_date", "tags", "status"]
+    readonly_fields = ['timestamp']
 
     fieldsets = [
         (
