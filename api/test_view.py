@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from rest_framework.test import force_authenticate
 
 from api.models import TodoItem
-from api.views import TodoItemListview, TodoItemCreateView, TodoItemDetailView
+from api.views import *
 
 
 
