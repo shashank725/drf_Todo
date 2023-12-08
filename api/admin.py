@@ -3,7 +3,7 @@ from .models import TodoItem
 
 # Register your models here.
 
-#Admin changelist 
+# Admin changelist
 # @admin.action(description="Mark selected items' status as Open")
 # def make_Open(modeladmin, request, queryset):
 #     queryset.update(status='OPEN')
@@ -17,6 +17,7 @@ from .models import TodoItem
 # def make_Overdue(modeladmin, request, queryset):
 #     queryset.update(status='OVERDUE')
 
+
 # @admin.register(TodoItem)     #using decorator
 class TodoItemAdmin(admin.ModelAdmin):
     list_display = ["title", "due_date", "status"]
@@ -25,28 +26,24 @@ class TodoItemAdmin(admin.ModelAdmin):
     # actions = [make_Open, make_Working, make_Done, make_Overdue]
     empty_value_display = "-empty-"
     list_filter = ["due_date", "tags", "status"]
-    readonly_fields = ['timestamp']
+    readonly_fields = ["timestamp"]
 
     fieldsets = [
         (
             None,
             {
-                "fields":["title", "description"],
+                "fields": ["title", "description"],
             },
         ),
-        (
-            None,
-            {
-                "fields": ["tags", "status"]
-            }
-        ),
+        (None, {"fields": ["tags", "status"]}),
         (
             "Dates :",
             {
                 "classes": ["collapse"],
                 "fields": ["timestamp", "due_date"],
-            }
+            },
         ),
     ]
+
 
 admin.site.register(TodoItem, TodoItemAdmin)
