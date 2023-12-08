@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "43b881e7-40b6-4ab8-af80-0a9680d9a6bf",
+		"name": "drf_Todo",
+		"description": "###### This collection consists of the following API endpoints :  \ni. READ all todo items  \nii. CREATE a todo item  \niii. READ one todo item  \niv. UPDATE a todo item  \nv. DELETE a todo item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21092535"
+	},
+	"item": [
+		{
+			"name": "ToDo List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ghostech725.pythonanywhere.com/todos/",
+					"protocol": "https",
+					"host": [
+						"ghostech725",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"todos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ToDo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Demo2\",\n    \"description\": \"DemoDemo\",\n    \"due_date\": \"2023-12-25\",\n    \"tags\": \"summer, cold, cold, winter, cold\",\n    \"status\": \"OPEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ghostech725.pythonanywhere.com/create/",
+					"protocol": "https",
+					"host": [
+						"ghostech725",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read one ToDo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ghostech725.pythonanywhere.com/todos/4/",
+					"protocol": "https",
+					"host": [
+						"ghostech725",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"todos",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a ToDo",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Demo2\",\n    \"description\": \"DemoDemo\",\n    \"due_date\": \"2023-12-7\",\n    \"tags\": \"\",\n    \"status\": \"WORKING\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ghostech725.pythonanywhere.com/todos/4/",
+					"protocol": "https",
+					"host": [
+						"ghostech725",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"todos",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a ToDo",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ghostech725.pythonanywhere.com/todos/3/",
+					"protocol": "https",
+					"host": [
+						"ghostech725",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"todos",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
