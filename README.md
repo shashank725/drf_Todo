@@ -80,6 +80,14 @@ Superuser creds : `username:admin` `password:admin`
 <br>
 
 ## Coverage Report :
+
+Commands to get coverage report :
+
+```
+coverage run --source='./api/' manage.py test
+coverage report
+coverage html
+```
 <p align="center">
 <img src="main_report.png"/> 
 </p>

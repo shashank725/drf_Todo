@@ -2,7 +2,7 @@ from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
 from rest_framework.test import force_authenticate
 
-from .models import TodoItem
+from .models import TodoItem, Tag
 from api.views import TodoItemCreateView
 
 # Create your tests here.
@@ -17,21 +17,18 @@ class TodoItemModelTest(TestCase):
         TodoItem.objects.create(
             title="Test_Task2",
             description="Test Description 2",
-            tags="cold, winter, cold, summer",
+        )
+        self.tag = Tag.objects.create(
+            value="Python"
         )
 
     def test_todo_item_creation(self):
         todo_item = TodoItem.objects.get(title="Test_Task1")
         self.assertEqual(todo_item.description, "Test Description 1")
 
-    def test_tags(self):
-        todo_item = TodoItem.objects.get(title="Test_Task2")
-        tag = "cold, winter, cold, summer"
-        tag = tag.replace(" ", "").split(",")
-        tag = set(tag)
-        tag = ", ".join(tag)
-        self.assertEqual(todo_item.tags, tag)
+    def test__str__(self):
         self.assertEqual(str(self.todo), str(1))
+        self.assertEqual(str(self.tag), "Python")
 
 
 class TodoItemSerializerTest(TestCase):

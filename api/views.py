@@ -7,8 +7,14 @@ from .serializers import TodoItemSerializer
 
 
 class TodoItemListview(generics.ListAPIView):
-    queryset = TodoItem.objects.all()
-    serializer_class = TodoItemSerializer
+    # queryset = TodoItem.objects.all()
+    # serializer_class = TodoItemSerializer
+
+    def get_queryset(self):
+        return TodoItem.objects.all()
+
+    def get_serializer_class(self):
+        return TodoItemSerializer
 
 
 class TodoItemCreateView(generics.CreateAPIView):

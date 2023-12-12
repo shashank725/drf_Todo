@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import TodoItem
+from .models import TodoItem, Tag
 
 # Register your models here.
 
@@ -47,3 +47,5 @@ class TodoItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(TodoItem, TodoItemAdmin)
+
+admin.site.register(Tag)
