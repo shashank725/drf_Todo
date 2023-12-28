@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.test import force_authenticate
 
 from .models import TodoItem, Tag
-from api.views import TodoItemCreateView
+from api.views import Todo
 
 # Create your tests here.
 
@@ -13,10 +13,8 @@ class TodoItemModelTest(TestCase):
         self.todo = TodoItem.objects.create(
             title="Test_Task1",
             description="Test Description 1",
-        )
-        TodoItem.objects.create(
-            title="Test_Task2",
-            description="Test Description 2",
+            due_date="2023-12-30",
+            status="OPEN"
         )
         self.tag = Tag.objects.create(
             value="Python"
@@ -39,11 +37,12 @@ class TodoItemSerializerTest(TestCase):
         data = {
             "title": "Serializer",
             "description": "DemoDemo",
-            "due_date": "2023-12-04",
+            "due_date": "2023-12-25",
+            "status": "OPEN"
         }
         request = RequestFactory().post("todos/create/", data)
         force_authenticate(request, user=self.user)
-        response = TodoItemCreateView.as_view()(request)
+        response = Todo.as_view()(request)
         self.assertRaisesMessage(
             response.data, "Due Date’ field value cannot be before ‘Timestamp created"     # noqa
         )

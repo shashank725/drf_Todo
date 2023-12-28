@@ -20,7 +20,7 @@ from .models import TodoItem, Tag
 
 # @admin.register(TodoItem)     #using decorator
 class TodoItemAdmin(admin.ModelAdmin):
-    list_display = ["title", "due_date", "status"]
+    list_display = ["id", "title", "due_date", "status"]
     ordering = ["title"]
     # date_hierarchy = "timestamp"
     # actions = [make_Open, make_Working, make_Done, make_Overdue]
@@ -48,4 +48,9 @@ class TodoItemAdmin(admin.ModelAdmin):
 
 admin.site.register(TodoItem, TodoItemAdmin)
 
-admin.site.register(Tag)
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ["id", "value"]
+
+
+admin.site.register(Tag, TagAdmin)

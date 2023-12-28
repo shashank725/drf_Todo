@@ -1,9 +1,10 @@
 from django.urls import path
-from api.views import TodoItemListview, TodoItemCreateView, TodoItemDetailView
+from api.views import Todo
 
 
 urlpatterns = [
-    path("todos/", TodoItemListview.as_view(), name="todo-list"),
-    path("todos/<int:pk>/", TodoItemDetailView.as_view(), name="todo-detail"),
-    path("todos/create/", TodoItemCreateView.as_view(), name="todo-create"),
+    path("todos/", Todo.as_view(), name="todo-list"),
+    path("todos/<int:pk>/", Todo.as_view(), name="todo"),
+    path("todos/create/", Todo.as_view(), name="todo-create"),
+    path("todos/create/<int:pk>/", Todo.as_view(), name="todo-update"),
 ]

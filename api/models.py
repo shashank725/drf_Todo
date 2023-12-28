@@ -20,15 +20,6 @@ class TodoItem(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES,
                               default="OPEN")
 
-    # def save(self, *args, **kwargs):
-    #     # To save unique tags
-    #     if self.tags:
-    #         tag = self.tags.replace(" ", "")
-    #         tag = tag.split(",")
-    #         tag = set(tag)
-    #         self.tags = ", ".join(tag)
-    #     super().save(*args, **kwargs)  # Call the "real" save() method.
-
     def __str__(self):
         return str(self.id)
 

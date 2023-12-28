@@ -31,11 +31,9 @@ class TodoItemSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tags_data = self.initial_data.get('tags', [])
-        print(tags_data)
         todo_item = TodoItem.objects.create(**validated_data)
         tags = [Tag.objects.get_or_create(value=tag_data['value'])[0]
                 for tag_data in tags_data]
-        print(tags)
         todo_item.tags.set(tags)
         return todo_item
 
