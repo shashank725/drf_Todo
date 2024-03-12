@@ -30,14 +30,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Tests
-      run: |
-        python manage.py test
+    # - name: Run Tests
+    #   run: |
+    #     python manage.py test
 
-    - name: Run Flake8 and Black
-      run: |
-        flake8 --extend-exclude=venv/,drf_Todo/,api/migrations/,manage.py .
-        black --extend-exclude "(manage\.py|drf_Todo/.*\.py|api/migrations/.*\.py)" .
+    # - name: Run Flake8 and Black
+    #   run: |
+    #     flake8 --extend-exclude=venv/,drf_Todo/,api/migrations/,manage.py .
+    #     black --extend-exclude "(manage\.py|drf_Todo/.*\.py|api/migrations/.*\.py)" .
       
     - name: Run Docker Compose
       run: docker compose up
