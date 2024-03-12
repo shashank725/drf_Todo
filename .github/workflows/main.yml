@@ -40,7 +40,7 @@ jobs:
     #     black --extend-exclude "(manage\.py|drf_Todo/.*\.py|api/migrations/.*\.py)" .
       
     - name: Run Docker Compose
-      run: docker compose up
+      run: docker compose up -d
 
 
 # black --check .
