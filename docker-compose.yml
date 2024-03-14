@@ -42,5 +42,6 @@ services:
         # required: true
       - redis
         # condition: service_started
+    mem_limit: 1g
 
 
